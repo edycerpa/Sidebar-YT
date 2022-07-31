@@ -36,6 +36,7 @@ a {
   text-decoration: none;
   color: $light;
   transition: all 0.3s ease;
+
   &:hover {
     color: $lightest;
   }
@@ -70,38 +71,67 @@ header {
         color: $lightest;
       }
     }
-    .searchbar{
-      position: relative;
+    nav{
       display: flex;
-      top: 0;
-      width: 30rem;
-      height: 3.5rem;
-      border-radius: 50rem;
-      border: 1px solid $lightest;
-      overflow: hidden;
-      button{
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: $lightest;
-        background-color: $accent;
-        border: none;
-        border-radius: 50%;
-        padding: 0.8rem;
-        font-size: 1.6rem;
-      }
-      input{
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 105%;
-        flex: 1 1 auto;
-        padding: 1rem 4rem 1rem 1.5rem;
-        background-color: transparent;
-        color: $lightest;
-        border: none;
-        &::placeholder{
-          color:$light
+      align-items: center;
+      gap: 1.5rem;
+
+      .searchbar{
+        display: flex;
+        position: relative;
+        border-radius: 50rem;
+        width: 3.4rem;
+        height: 3.4rem;
+        overflow: hidden;
+        transition: 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 2px;
+
+        & .search-input{
+          flex-grow: 1;
+          padding: 1rem 4rem 1rem 1.5rem;
+          background-color: transparent;
+          color: $light;
+          border: none;
+          height: 3.4rem;
+          width: 100%;
+          position: absolute;
+          cursor: pointer;
+          opacity: 0;
+          
+          &::placeholder{
+            color: $light;
+          }
+
+          &:focus{
+            outline: 0;
+            cursor: initial;
+          }
+        }
+
+        & .search-button{
+          color: $lightest;
+          border-radius: 50%;
+          padding: 0 0.6rem;
+          font-size: 1.4rem;
+          margin-left: auto;
+
+          :focus-within{
+            width: 30rem;
+          }
+        }
+
+        &:focus-within{
+          border: 2px solid rgba(255,255,255,0.3);
+          width: 30rem;
+          & .search-input{
+            opacity: 1;
+          }
+
+          & .search-button{
+            padding: 0 0.8rem 0;
+            background-color: $accent;
+          }
         }
       }
     }
@@ -127,6 +157,7 @@ header {
 .main-container {
   display: flex;
   position: relative;
+
   .sidebar {
     width: 7rem;
     background-color: $medium;
@@ -147,24 +178,29 @@ header {
       margin: auto;
       transition: $transition;
     }
+
     .logo {
       width: 100%;
     }
+
     .sidebar__info{
       height: 0;
       width: 0;
       h3{
         font-size: 1.4rem;
       }
+
       p{
         font-size: 1.2rem;
       }
+
       h3, p{
         transition: ease;
         visibility: hidden;
         opacity: 0;
       }
     }
+
     .middle-section{
       overflow-x: auto;
       overflow-y: auto;
@@ -185,10 +221,12 @@ header {
           margin-left: 2.3rem;
           fill: $light;
         }  
+
         &.active {
           color: $accent;
           background-color: $dark;
           position: relative;
+
             &::before{
               position: absolute;
               content: '';
@@ -198,16 +236,20 @@ header {
               left: 0;
               width: 0.4rem;
             }
+
             .icon{
               fill: $accent;
             }
           }
+
           .icon{
             margin-right: 2rem;
           }
+
           &:hover{
             background-color: $dark;
           }
+
           span{
             font-weight: bold;
             width: 0%;
@@ -216,8 +258,9 @@ header {
             visibility: hidden;
             transition: all 0.3s ease;
           }
+        }
       }
-    }
+
     .sidebar__footer{
       /* position: fixed;
       bottom: 0; */
@@ -226,8 +269,8 @@ header {
       margin-top: auto;
       ul{
         margin-bottom: 1rem;
-        
       }
+
       li{
         padding-block: 1rem;
 
@@ -236,6 +279,7 @@ header {
         }
       }
     }
+
     &.open {
       width: 24rem;
 
@@ -258,6 +302,7 @@ header {
           text-align: center;
         }
       }
+
       .sidebar__links-text{
         width: calc(100% - 7rem);
         height: 100%;
