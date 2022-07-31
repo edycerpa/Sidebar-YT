@@ -1,0 +1,261 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #8e8e8e transparent;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  background-color: #8e8e8e;
+  font-family: "Roboto", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 0.7rem;
+  border: 1px solid #8e8e8e;
+  background: #272727;
+  padding: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ff4e45;
+  border-radius: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #8e8e8e;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #eeeeee;
+}
+
+/* !ESTILOS */
+/* !HEADER */
+header {
+  height: 5.5rem;
+  background-color: #272727;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  padding-inline: 2.5rem;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+header .container button {
+  background-color: transparent;
+  color: #8e8e8e;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+header .container button:hover {
+  color: #eeeeee;
+}
+header .container .searchbar {
+  position: relative;
+  display: flex;
+  top: 0;
+  width: 30rem;
+  height: 3.5rem;
+  border-radius: 50rem;
+  border: 1px solid #eeeeee;
+  overflow: hidden;
+}
+header .container .searchbar button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #eeeeee;
+  background-color: #ff4e45;
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+}
+header .container .searchbar input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 105%;
+  flex: 1 1 auto;
+  padding: 1rem 4rem 1rem 1.5rem;
+  background-color: transparent;
+  color: #eeeeee;
+  border: none;
+}
+header .container .searchbar input::-moz-placeholder {
+  color: #8e8e8e;
+}
+header .container .searchbar input:-ms-input-placeholder {
+  color: #8e8e8e;
+}
+header .container .searchbar input::placeholder {
+  color: #8e8e8e;
+}
+header .container ul {
+  display: flex;
+  gap: 2rem;
+}
+header .container ul li {
+  list-style: none;
+}
+header .container ul li a {
+  text-transform: uppercase;
+}
+
+/* !MAIN CONTAINER */
+/* !SIDEBAR */
+.main-container {
+  display: flex;
+  position: relative;
+}
+.main-container .sidebar {
+  width: 7rem;
+  background-color: #272727;
+  transition: all 0.3s ease;
+  height: calc(100vh - 5.5rem);
+  white-space: nowrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5.5rem;
+  bottom: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.main-container .sidebar .sidebar__logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0 1rem;
+  width: 3.5rem;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+.main-container .sidebar .logo {
+  width: 100%;
+}
+.main-container .sidebar .sidebar__info {
+  height: 0;
+  width: 0;
+}
+.main-container .sidebar .sidebar__info h3 {
+  font-size: 1.4rem;
+}
+.main-container .sidebar .sidebar__info p {
+  font-size: 1.2rem;
+}
+.main-container .sidebar .sidebar__info h3, .main-container .sidebar .sidebar__info p {
+  transition: ease;
+  visibility: hidden;
+  opacity: 0;
+}
+.main-container .sidebar .middle-section {
+  overflow-x: auto;
+  overflow-y: auto;
+  margin-top: 1rem;
+  max-height: auto;
+}
+.main-container .sidebar .middle-section a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: 1rem;
+  transition: none;
+  margin: auto;
+}
+.main-container .sidebar .middle-section a .icon {
+  width: 2.4rem;
+  margin-left: 2.3rem;
+  fill: #8e8e8e;
+}
+.main-container .sidebar .middle-section a.active {
+  color: #ff4e45;
+  background-color: #1d1d1d;
+  position: relative;
+}
+.main-container .sidebar .middle-section a.active::before {
+  position: absolute;
+  content: "";
+  background-color: #ff4e45;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.4rem;
+}
+.main-container .sidebar .middle-section a.active .icon {
+  fill: #ff4e45;
+}
+.main-container .sidebar .middle-section a .icon {
+  margin-right: 2rem;
+}
+.main-container .sidebar .middle-section a:hover {
+  background-color: #1d1d1d;
+}
+.main-container .sidebar .middle-section a span {
+  font-weight: bold;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.main-container .sidebar .sidebar__footer {
+  /* position: fixed;
+  bottom: 0; */
+  margin-top: auto;
+}
+.main-container .sidebar .sidebar__footer ul {
+  margin-bottom: 1rem;
+}
+.main-container .sidebar .sidebar__footer li {
+  padding-block: 1rem;
+}
+.main-container .sidebar .sidebar__footer li:hover {
+  background-color: #1d1d1d;
+}
+.main-container .sidebar.open {
+  width: 24rem;
+}
+.main-container .sidebar.open .sidebar__logo-wrapper {
+  width: 11rem;
+  transition: all 0.3s ease;
+}
+.main-container .sidebar.open .sidebar__info {
+  width: 100%;
+  height: auto;
+}
+.main-container .sidebar.open .sidebar__info h3,
+.main-container .sidebar.open .sidebar__info p {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+  color: #8e8e8e;
+  width: 100%;
+  text-align: center;
+}
+.main-container .sidebar.open .sidebar__links-text {
+  width: calc(100% - 7rem);
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* !CONTENT */
+.main-content {
+  padding: 2rem 3rem;
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

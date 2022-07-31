@@ -1,11 +1,10 @@
-:root {
-  --accent: #ff4e45;
-  --dark: #1d1d1d;
-  --medium: #272727;
-  --light: #8e8e8e;
-  --lightest: #eeeeee;
-  --transition: all 0.3s ease;
-}
+$dark: #1d1d1d;
+$medium: #272727;
+$accent: #ff4e45;
+$light: #8e8e8e;
+$lightest: #eeeeee;
+$transition: all 0.3s ease;
+
 *,
 *::after,
 *::before {
@@ -13,32 +12,33 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: var(--light) transparent;
+  scrollbar-color: $light transparent;
 }
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.4rem;
-  background-color: var(--light);
+  background-color: $light;
   font-family: 'Roboto', sans-serif;
 }
 *::-webkit-scrollbar {
   width: 0.7rem;
-  border: 1px solid black;
+  border: 1px solid $light;
+  background: $medium;
   padding: 5px;
 }
 *::-webkit-scrollbar-thumb {
-  background: var(--light);
+  background: $accent;
   border-radius: 5rem;
 }
 a {
   text-decoration: none;
-  color: var(--light);
+  color: $light;
   transition: all 0.3s ease;
-}
-a:hover {
-  color: var(--lightest);
+  &:hover {
+    color: $lightest;
+  }
 }
 
 /* !ESTILOS */
@@ -46,67 +46,229 @@ a:hover {
 
 header {
   height: 5.5rem;
-  background-color: var(--medium);
-}
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-header .container button {
-  background-color: transparent;
-  color: var(--light);
-  border: none;
-  margin-left: 3rem;
-  font-size: 2rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-header .container button:hover {
-  color: var(--lightest);
-}
-header .container ul {
-  display: flex;
-  gap: 2rem;
-}
-header .container ul li {
-  list-style: none;
-}
-header .container ul li a {
-  text-transform: uppercase;
+  background-color: $medium;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  padding-inline: 2.5rem;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    button {
+      background-color: transparent;
+      color: $light;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      transition: $transition;
+
+      &:hover {
+        color: $lightest;
+      }
+    }
+    .searchbar{
+      position: relative;
+      display: flex;
+      top: 0;
+      width: 30rem;
+      height: 3.5rem;
+      border-radius: 50rem;
+      border: 1px solid $lightest;
+      overflow: hidden;
+      button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $lightest;
+        background-color: $accent;
+        border: none;
+        border-radius: 50%;
+        padding: 0.8rem;
+        font-size: 1.6rem;
+      }
+      input{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 105%;
+        flex: 1 1 auto;
+        padding: 1rem 4rem 1rem 1.5rem;
+        background-color: transparent;
+        color: $lightest;
+        border: none;
+        &::placeholder{
+          color:$light
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      gap: 2rem;
+
+      li {
+        list-style: none;
+
+        a {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 /* !MAIN CONTAINER */
-.main-container{
-    display: flex;
-}
-
 /* !SIDEBAR */
-.sidebar{
-    min-width: 24rem;
-    background-color: var(--medium);
+
+.main-container {
+  display: flex;
+  position: relative;
+  .sidebar {
+    width: 7rem;
+    background-color: $medium;
+    transition: $transition;
+    height: calc(100vh - 5.5rem);
+    white-space: nowrap;
+    position: sticky;
+    top: 5.5rem;
+    bottom: 0;
+    flex: 0 0 auto;
     overflow: hidden;
-    transition: var(--transition);
+
+    .sidebar__logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 0 1rem;
+      width: 3.5rem;
+      margin: auto;
+      transition: $transition;
+    }
+    .logo {
+      width: 100%;
+    }
+    .sidebar__info{
+      height: 0;
+      width: 0;
+      h3{
+        font-size: 1.4rem;
+      }
+      p{
+        font-size: 1.2rem;
+      }
+      h3, p{
+        transition: ease;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    .middle-section{
+      overflow-x: auto;
+      overflow-y: auto;
+      // flex: 0 0 auto;
+      margin-top: 1rem;
+      max-height: auto;
+      
+      a{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-block: 1rem;
+        transition: none;
+        margin: auto;
+        
+        .icon{
+          width: 2.4rem;
+          margin-left: 2.3rem;
+          fill: $light;
+        }  
+        &.active {
+          color: $accent;
+          background-color: $dark;
+          position: relative;
+            &::before{
+              position: absolute;
+              content: '';
+              background-color: $accent;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              width: 0.4rem;
+            }
+            .icon{
+              fill: $accent;
+            }
+          }
+          .icon{
+            margin-right: 2rem;
+          }
+          &:hover{
+            background-color: $dark;
+          }
+          span{
+            font-weight: bold;
+            width: 0%;
+            height: 0%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+          }
+      }
+    }
+    .sidebar__footer{
+      /* position: fixed;
+      bottom: 0; */
+      // flex: 0 0 auto;
+      
+      margin-top: auto;
+      ul{
+        margin-bottom: 1rem;
+        
+      }
+      li{
+        padding-block: 1rem;
+
+        &:hover{
+          background-color: $dark;
+        }
+      }
+    }
+    &.open {
+      width: 24rem;
+
+      .sidebar__logo-wrapper {
+        width: 11rem;
+        transition: $transition;
+      }
+
+      .sidebar__info {
+        width: 100%;
+        height: auto;
+
+        h3,
+        p {
+          visibility: visible;
+          opacity: 1;
+          transition: $transition;
+          color: $light;
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .sidebar__links-text{
+        width: calc(100% - 7rem);
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+      }
+
+
+    }
+  }
 }
-.sidebar.open{
-    min-width: 7rem;
-}
-.sidebar__logo-wrapper{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding: 2rem 0;
-    width: 11rem;
-}
-.logo{
-    width: 100%;
-}
-
-
-
-
-
 
 
 
@@ -114,6 +276,7 @@ header .container ul li a {
 
 
 /* !CONTENT */
-.content{
-    padding: 2rem 3rem;
+.main-content {
+  padding: 2rem 3rem;
+  width: 100%;
 }
