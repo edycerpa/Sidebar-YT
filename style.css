@@ -80,37 +80,34 @@ header ul li a {
 }
 
 /* !SIDEBAR */
-.container{
+.container {
   display: flex;
 }
-.sidebar.open{
-  height: calc(100vh - 5.5rem);
-  background-color: var(--medium);
-  width: 24rem;
-  padding-block: 2rem;
-  transition: all 0.3s ease;
-  position: fixed;
-  top: calc(0 - 5rem);
-}
-.sidebar .sidebar__links ul{
-  overflow-y: auto;
-}
-.sidebar{
-  flex-shrink: 0;
+.sidebar {
   height: calc(100vh - 5.5rem);
   background-color: var(--medium);
   width: 7rem;
   padding-block: 2.2rem;
-  transition: all 0.3s ease;
-  position: fixed;
   overflow: hidden;
-  top: calc(0 - 5rem);
+  position: fixed;
+  top: 5.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
-.sidebar.open .sidebar__logo-wrapper{
-  margin-bottom: 2rem;
-  height: 15rem;
+.sidebar.open {
+  /* height: calc(100vh - 5.5rem); */
+  /* background-color: var(--medium); */
+  width: 24rem;
+  /* height: 100vh; */
+  /* padding-block: 2rem; */
+  /* transition: all 0.3s ease; */
+  /* top: 5.5rem; */
+  /* left: 0; */
+  /* overflow: hidden; */
+  /* position: fixed; */
+  /* bottom: 0; */
 }
-.sidebar .sidebar__logo-wrapper{
+.sidebar .sidebar__logo-wrapper {
   width: 100%;
   height: 3.5rem;
   margin-bottom: 1rem;
@@ -119,52 +116,57 @@ header ul li a {
   position: relative;
   transition: all 0.3s ease;
 }
-.sidebar .logo{
+.sidebar.open .sidebar__logo-wrapper {
+  margin-bottom: 2rem;
+  height: 15rem;
+}
+.sidebar .sidebar__logo-wrapper .logo {
   width: 2.8rem;
   transition: all 0.3s ease;
 }
-.sidebar.open .logo{
+.sidebar.open .sidebar__logo-wrapper .logo {
   width: 11rem;
 }
 .sidebar p,
 .sidebar h3,
-.sidebar__links-text
-{
+.sidebar__links-text {
   opacity: 0;
   visibility: hidden;
   height: 0;
   width: 0;
   transition: ease;
 }
-.sidebar.open .sidebar__logo-wrapper h3{
+.sidebar.open .sidebar__logo-wrapper h3 {
   position: absolute;
   top: calc(100% - 3.5rem);
   width: 100%;
   font-size: 1.4rem;
   line-height: 1.5;
 }
-.sidebar.open .sidebar__logo-wrapper p{
+.sidebar.open .sidebar__logo-wrapper p {
   position: absolute;
   top: calc(100% - 1rem);
   width: 100%;
   font-size: 1.2rem;
-  /* z-index: 1; */
 }
-.sidebar.open li{
-  z-index: 5;
-}
-.sidebar.open p, 
-.sidebar.open h3{
+.sidebar.open .sidebar__logo-wrapper p,
+.sidebar.open .sidebar__logo-wrapper h3 {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease;
-  transition-delay: 0.2s;
 }
-.sidebar.open .sidebar__links-text{
+.sidebar ul li a .sidebar__links-text {
+  width: calc(100% - 2.4rem);
+  transition: all 0.3s ease;
+  margin-left: 2rem;
+}
+.sidebar.open ul li a .sidebar__links-text {
   opacity: 1;
   visibility: visible;
   height: 100%;
+  width: calc(100% - 2.4rem);
   transition: all 0.3s ease;
+  margin-left: 3rem;
 }
 .sidebar .active {
   position: relative;
@@ -179,30 +181,28 @@ header ul li a {
   left: 0;
   background-color: var(--accent);
 }
-.sidebar .active *{
+.sidebar .active * {
   fill: var(--accent);
   color: var(--accent);
 }
-.sidebar.open ul{
+.sidebar.open ul {
   width: 24rem;
 }
-.sidebar ul{
+.sidebar ul {
   flex-direction: column;
   width: 7rem;
 }
-.sidebar.open ul li a{  
-  display: flex;
-  flex-direction: row;
+.sidebar.open ul li a {
   align-items: center;
+  display: flex;
   padding-inline: 2.2rem;
   padding-block: 1rem;
   margin: -0.5rem 0;
   width: 100%;
   color: var(--light);
 }
-.sidebar ul li a{  
+.sidebar ul li a {
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding-left: 2.2rem;
   padding-block: 1rem;
@@ -210,38 +210,54 @@ header ul li a {
   width: 100%;
   color: var(--light);
 }
-.sidebar ul li a:hover{
+.sidebar ul li a:hover {
   background-color: var(--dark);
 }
-.sidebar.open ul li a .icon{
+.sidebar.open .icon {
   width: 2.4rem;
   height: 2.4rem;
+  display: inline-block;
   fill: var(--light);
-  margin-right: 2rem;
 }
-.sidebar ul li a .icon{
-  width: 2.4rem;
+.sidebar .icon {
+  min-width: 2.4rem;
+  max-width: 2.4rem;
+  width: 100%;
   height: 2.4rem;
   fill: var(--light);
-  margin-right: 2rem;
 }
-
 
 /* !SIDEBAR FOOTER */
-/* .sidebar .sidebar__footer{
-  margin-top: 10rem;
-  margin-bottom: 0;
-} */
-
-
-
-
-
-
-
-
+.sidebar.open .sidebar__footer {
+  background-color: var(--medium);
+  width: 24rem;
+  position: fixed;
+  bottom: 0;
+  padding-block: 1rem;
+  transition: all 0.3s ease;
+}
+.sidebar .sidebar__footer {
+  background-color: var(--medium);
+  width: 7rem;
+  position: fixed;
+  bottom: 0;
+  padding-block: 1rem;
+  transition: all 0.3s ease;
+}
+.sidebar__footer .icon {
+  margin-left: 0.3rem;
+  font-size: 1.8rem;
+}
+.sidebar__footer .sidebar__links-text {
+  width: 100%;
+}
 
 /* !CONTENT */
-.container .content{
-  padding: 2rem 3rem;
+.container .sidebar ~ .content {
+  padding: 2rem 10rem;
+  transition: all 0.3s ease;
+}
+.container .sidebar.open ~ .content {
+  padding: 2rem 3rem 2rem 27rem;
+  transition: all 0.3s ease;
 }

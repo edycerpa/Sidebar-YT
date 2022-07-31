@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sidebar</title>
   </head>
@@ -20,6 +18,10 @@
         <button class="menu-icon-btn">
           <i class="menu-icon fa-solid fa-bars"></i>
         </button>
+        <div class="searchbar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Busca en el contenido de tu canal...">
+        </div>
         <nav class="nav">
           <ul>
             <li><a href="#">Inicio</a></li>
@@ -30,8 +32,8 @@
         </nav>
       </div>
     </header>
-    <div class="container">
-      <aside class="sidebar ">
+    <div class="main-container">
+      <aside class="sidebar open">
         <div class="sidebar__logo-wrapper">
           <a href="#">
             <img src="Logo R claro color.png" alt="Logo CWD" class="logo" />
@@ -44,7 +46,7 @@
             <li>
               <a href="#" class="active">
                 <svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path></g></svg>
-                <div class="sidebar__links-text">Panel</div>
+                <span class="sidebar__links-text">Panel</span>
               </a>
             </li>
             <li>
@@ -108,12 +110,12 @@
             <li>
               <a href="#" class="sidebar__footer-link">
                 <i class="icon fa-solid fa-gear"></i>
-                Configuración</a>
+                <span class="sidebar__links-text">Configuración</span></a>
             </li>
             <li>
               <a href="#" class="sidebar__footer-link">
                 <i class="icon fa-solid fa-message"></i>
-                Enviar sugerencias</a>
+                <span class="sidebar__links-text">Enviar sugerencias</span></a>
             </li>
           </ul>
         </div>
