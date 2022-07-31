@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: #8e8e8e transparent;
+  scrollbar-width: auto;
+  scrollbar-color: #ff4e45 #272727;
 }
 
 html {
@@ -19,15 +19,17 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 0.7rem;
-  border: 1px solid #8e8e8e;
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
   background: #272727;
-  padding: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #ff4e45;
-  border-radius: 5rem;
+  background-color: #ff4e45;
+  border-radius: 10px;
+  border: 2px solid #272727;
 }
 
 a {
@@ -78,13 +80,13 @@ header .container nav .searchbar {
   width: 3.4rem;
   height: 3.4rem;
   overflow: hidden;
-  transition: 0.3s;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s cubic-bezier(0.22, 0.61, 0.4, 1.33);
   padding: 2px;
 }
 header .container nav .searchbar .search-input {
   flex-grow: 1;
-  padding: 1rem 4rem 1rem 1.5rem;
+  padding: 1rem 4rem 1.5rem 1.5rem;
   background-color: transparent;
   color: #8e8e8e;
   border: none;
@@ -114,7 +116,7 @@ header .container nav .searchbar .search-button {
   font-size: 1.4rem;
   margin-left: auto;
 }
-header .container nav .searchbar .search-button :focus-within {
+header .container nav .searchbar .search-button:focus-within {
   width: 30rem;
 }
 header .container nav .searchbar:focus-within {

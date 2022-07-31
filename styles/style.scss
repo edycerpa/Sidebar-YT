@@ -11,8 +11,8 @@ $transition: all 0.3s ease;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: $light transparent;
+  scrollbar-width: auto;
+    scrollbar-color: $accent $medium;
 }
 html {
   font-size: 62.5%;
@@ -23,14 +23,15 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 *::-webkit-scrollbar {
-  width: 0.7rem;
-  border: 1px solid $light;
-  background: $medium;
-  padding: 5px;
+  width: 1rem;
+}
+*::-webkit-scrollbar-track {
+  background: $medium
 }
 *::-webkit-scrollbar-thumb {
-  background: $accent;
-  border-radius: 5rem;
+  background-color: $accent;
+  border-radius: 10px;
+  border: 2px solid $medium;
 }
 a {
   text-decoration: none;
@@ -83,13 +84,13 @@ header {
         width: 3.4rem;
         height: 3.4rem;
         overflow: hidden;
-        transition: 0.3s;
         border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s cubic-bezier(.22, .61, .4, 1.33);
         padding: 2px;
 
-        & .search-input{
+        .search-input{
           flex-grow: 1;
-          padding: 1rem 4rem 1rem 1.5rem;
+          padding: 1rem 4rem 1.5rem 1.5rem;
           background-color: transparent;
           color: $light;
           border: none;
@@ -109,14 +110,14 @@ header {
           }
         }
 
-        & .search-button{
+        .search-button{
           color: $lightest;
           border-radius: 50%;
           padding: 0 0.6rem;
           font-size: 1.4rem;
           margin-left: auto;
 
-          :focus-within{
+          &:focus-within{
             width: 30rem;
           }
         }
@@ -124,11 +125,11 @@ header {
         &:focus-within{
           border: 2px solid rgba(255,255,255,0.3);
           width: 30rem;
-          & .search-input{
+          .search-input{
             opacity: 1;
           }
 
-          & .search-button{
+          .search-button{
             padding: 0 0.8rem 0;
             background-color: $accent;
           }
