@@ -16,6 +16,9 @@ body {
   font-size: 1.4rem;
   background-color: #8e8e8e;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  overflow-x: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 *::-webkit-scrollbar {
@@ -44,12 +47,13 @@ a:hover {
 /* !ESTILOS */
 /* !HEADER */
 header {
-  height: 5.5rem;
+  height: 6.5rem;
   background-color: #272727;
   position: fixed;
   width: 100vw;
   z-index: 10;
-  padding-inline: 2.5rem;
+  padding-inline: 3rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 header .container {
   display: flex;
@@ -57,23 +61,35 @@ header .container {
   align-items: center;
   height: 100%;
 }
-header .container button {
+header .container .col1 {
+  display: flex;
+  justify-content: center;
+}
+header .container .col1 button {
   background-color: transparent;
-  color: #8e8e8e;
   border: none;
   cursor: pointer;
-  font-size: 2rem;
   transition: all 0.3s ease;
 }
-header .container button:hover {
+header .container .col1 button .menu-icon {
+  margin-right: 2.5rem;
+  color: #8e8e8e;
+  font-size: 2rem;
+  font-weight: 900;
+}
+header .container .col1 button:hover {
   color: #eeeeee;
 }
-header .container nav {
+header .container .col1 .site-logo {
+  height: 2.4rem;
+  display: block;
+}
+header .container .col2 {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-header .container nav .searchbar {
+header .container .col2 .searchbar {
   display: flex;
   position: relative;
   border-radius: 50rem;
@@ -84,7 +100,7 @@ header .container nav .searchbar {
   transition: 0.3s cubic-bezier(0.22, 0.61, 0.4, 1.33);
   padding: 2px;
 }
-header .container nav .searchbar .search-input {
+header .container .col2 .searchbar .search-input {
   flex-grow: 1;
   padding: 1rem 4rem 1.5rem 1.5rem;
   background-color: transparent;
@@ -96,39 +112,55 @@ header .container nav .searchbar .search-input {
   cursor: pointer;
   opacity: 0;
 }
-header .container nav .searchbar .search-input::-moz-placeholder {
+header .container .col2 .searchbar .search-input::-moz-placeholder {
   color: #8e8e8e;
 }
-header .container nav .searchbar .search-input:-ms-input-placeholder {
+header .container .col2 .searchbar .search-input:-ms-input-placeholder {
   color: #8e8e8e;
 }
-header .container nav .searchbar .search-input::placeholder {
+header .container .col2 .searchbar .search-input::placeholder {
   color: #8e8e8e;
 }
-header .container nav .searchbar .search-input:focus {
+header .container .col2 .searchbar .search-input:focus {
   outline: 0;
   cursor: initial;
 }
-header .container nav .searchbar .search-button {
+header .container .col2 .searchbar .search-button {
   color: #eeeeee;
   border-radius: 50%;
   padding: 0 0.6rem;
   font-size: 1.4rem;
   margin-left: auto;
 }
-header .container nav .searchbar .search-button:focus-within {
+header .container .col2 .searchbar .search-button:focus-within {
   width: 30rem;
 }
-header .container nav .searchbar:focus-within {
+header .container .col2 .searchbar:focus-within {
   border: 2px solid rgba(255, 255, 255, 0.3);
   width: 30rem;
 }
-header .container nav .searchbar:focus-within .search-input {
+header .container .col2 .searchbar:focus-within .search-input {
   opacity: 1;
 }
-header .container nav .searchbar:focus-within .search-button {
+header .container .col2 .searchbar:focus-within .search-button {
   padding: 0 0.8rem 0;
   background-color: #ff4e45;
+}
+header .container .faqs {
+  font-size: 2.4rem;
+}
+header .container .crear {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  color: #eeeeee;
+}
+header .container .crear .material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 40;
+  color: #ff4e45;
+  font-size: 2.4rem;
 }
 header .container ul {
   display: flex;
@@ -140,6 +172,9 @@ header .container ul li {
 header .container ul li a {
   text-transform: uppercase;
 }
+header .container .logo {
+  width: 3.5rem;
+}
 
 /* !MAIN CONTAINER */
 /* !SIDEBAR */
@@ -148,22 +183,25 @@ header .container ul li a {
   position: relative;
 }
 .main-container .sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   width: 7rem;
+  height: calc(100vh - 6.5rem);
   background-color: #272727;
-  transition: all 0.3s ease;
-  height: calc(100vh - 5.5rem);
-  white-space: nowrap;
   position: -webkit-sticky;
   position: sticky;
-  top: 5.5rem;
+  top: 6.5rem;
   bottom: 0;
-  flex: 0 0 auto;
+  white-space: nowrap;
   overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 }
 .main-container .sidebar .sidebar__logo-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0 1rem;
+  padding: 1.5rem 0 0;
   width: 3.5rem;
   margin: auto;
   transition: all 0.3s ease;
@@ -187,22 +225,23 @@ header .container ul li a {
   opacity: 0;
 }
 .main-container .sidebar .middle-section {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
   margin-top: 1rem;
   max-height: auto;
+  flex: 1 1 auto;
 }
 .main-container .sidebar .middle-section a {
   display: flex;
   align-items: center;
   width: 100%;
-  padding-block: 1rem;
+  padding-block: 1.2rem;
   transition: none;
   margin: auto;
 }
 .main-container .sidebar .middle-section a .icon {
   width: 2.4rem;
-  margin-left: 2.3rem;
+  margin-left: 2.4rem;
   fill: #8e8e8e;
 }
 .main-container .sidebar .middle-section a.active {
@@ -223,7 +262,7 @@ header .container ul li a {
   fill: #ff4e45;
 }
 .main-container .sidebar .middle-section a .icon {
-  margin-right: 2rem;
+  margin-right: 2.4rem;
 }
 .main-container .sidebar .middle-section a:hover {
   background-color: #1d1d1d;
@@ -234,28 +273,39 @@ header .container ul li a {
   height: 0%;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 .main-container .sidebar .sidebar__footer {
-  /* position: fixed;
-  bottom: 0; */
+  flex-grow: 0;
   margin-top: auto;
 }
 .main-container .sidebar .sidebar__footer ul {
   margin-bottom: 1rem;
 }
 .main-container .sidebar .sidebar__footer li {
-  padding-block: 1rem;
+  padding-block: 1.4rem;
 }
 .main-container .sidebar .sidebar__footer li:hover {
   background-color: #1d1d1d;
 }
+.main-container .sidebar .sidebar__footer .icon {
+  font-size: 1.9rem;
+  margin-left: 2.6rem;
+}
+.main-container .sidebar .sidebar__footer .sidebar__links-text {
+  font-weight: bold;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
 .main-container .sidebar.open {
-  width: 24rem;
+  width: 26rem;
 }
 .main-container .sidebar.open .sidebar__logo-wrapper {
   width: 11rem;
   transition: all 0.3s ease;
+  margin-top: 1rem;
 }
 .main-container .sidebar.open .sidebar__info {
   width: 100%;
@@ -263,14 +313,29 @@ header .container ul li a {
 }
 .main-container .sidebar.open .sidebar__info h3,
 .main-container .sidebar.open .sidebar__info p {
+  color: #8e8e8e;
   visibility: visible;
   opacity: 1;
   transition: all 0.3s ease;
-  color: #8e8e8e;
   width: 100%;
   text-align: center;
 }
+.main-container .sidebar.open .sidebar__info h3 {
+  color: #eeeeee;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+.main-container .sidebar.open .sidebar__info p {
+  margin-bottom: 1rem;
+}
 .main-container .sidebar.open .sidebar__links-text {
+  width: calc(100% - 7rem);
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+.main-container .sidebar.open .sidebar__footer .sidebar__links-text {
+  margin-left: 2.4rem;
   width: calc(100% - 7rem);
   height: 100%;
   visibility: visible;
@@ -279,6 +344,16 @@ header .container ul li a {
 
 /* !CONTENT */
 .main-content {
+  background-color: #1d1d1d;
+  margin-top: 6.5rem;
   padding: 2rem 3rem;
   width: 100%;
+  color: #8e8e8e;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #eeeeee;
 }/*# sourceMappingURL=style.css.map */
