@@ -12,11 +12,13 @@ $transition: all 0.3s ease;
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: auto;
-    scrollbar-color: $accent $medium;
+  scrollbar-color: $accent $medium;
 }
+
 html {
   font-size: 62.5%;
 }
+
 body {
   font-size: 1.4rem;
   background-color: $light;
@@ -25,17 +27,21 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
 }
+
 *::-webkit-scrollbar {
   width: 1rem;
 }
+
 *::-webkit-scrollbar-track {
   background: $medium
 }
+
 *::-webkit-scrollbar-thumb {
   background-color: $accent;
   border-radius: 10px;
   border: 2px solid $medium;
 }
+
 a {
   text-decoration: none;
   color: $light;
@@ -56,7 +62,7 @@ header {
   width: 100vw;
   z-index: 10;
   padding-inline: 3rem;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
   .container {
     display: flex;
@@ -64,38 +70,40 @@ header {
     align-items: center;
     height: 100%;
 
-    .col1{
+    .col1 {
       display: flex;
       justify-content: center;
-      
+
       button {
         background-color: transparent;
         border: none;
         cursor: pointer;
         transition: $transition;
-        
-        .menu-icon{
+
+        .menu-icon {
           margin-right: 2.5rem;
           color: $light;
           font-size: 2rem;
-          font-weight: 900;          
+          font-weight: 900;
         }
+
         &:hover {
           color: $lightest;
         }
       }
 
-      .site-logo{
+      .site-logo {
         height: 2.4rem;
         display: block;
       }
     }
-    .col2{
+
+    .col2 {
       display: flex;
       align-items: center;
       gap: 1.5rem;
 
-      .searchbar{
+      .searchbar {
         display: flex;
         position: relative;
         border-radius: 50rem;
@@ -106,7 +114,7 @@ header {
         transition: 0.3s cubic-bezier(.22, .61, .4, 1.33);
         padding: 2px;
 
-        .search-input{
+        .search-input {
           flex-grow: 1;
           padding: 1rem 4rem 1.5rem 1.5rem;
           background-color: transparent;
@@ -117,60 +125,64 @@ header {
           position: absolute;
           cursor: pointer;
           opacity: 0;
-          
-          &::placeholder{
+
+          &::placeholder {
             color: $light;
           }
 
-          &:focus{
+          &:focus {
             outline: 0;
             cursor: initial;
           }
         }
 
-        .search-button{
+        .search-button {
           color: $lightest;
           border-radius: 50%;
           padding: 0 0.6rem;
           font-size: 1.4rem;
           margin-left: auto;
 
-          &:focus-within{
+          &:focus-within {
             width: 30rem;
           }
         }
 
-        &:focus-within{
-          border: 2px solid rgba(255,255,255,0.3);
+        &:focus-within {
+          border: 2px solid rgba(255, 255, 255, 0.3);
           width: 30rem;
-          .search-input{
+
+          .search-input {
             opacity: 1;
           }
 
-          .search-button{
+          .search-button {
             padding: 0 0.8rem 0;
             background-color: $accent;
           }
         }
       }
     }
-    .faqs{
+
+    .faqs {
       font-size: 2.4rem;
     }
-    .crear{
+
+    .crear {
       background-color: transparent;
       border: 2px solid rgba(255, 255, 255, 0.2);
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
       color: $lightest;
-      
-      .material-symbols-outlined{
+
+      .material-symbols-outlined {
         font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 40;
         color: $accent;
         font-size: 2.4rem;
       }
     }
+
     ul {
       display: flex;
       gap: 2rem;
@@ -183,7 +195,8 @@ header {
         }
       }
     }
-    .logo{
+
+    .logo {
       width: 3.5rem;
     }
   }
@@ -209,7 +222,7 @@ header {
     white-space: nowrap;
     overflow: hidden;
     transition: $transition;
-    box-shadow: 0 0 2px rgba(255,255,255, 0.3);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 
     .sidebar__logo-wrapper {
       display: flex;
@@ -224,105 +237,108 @@ header {
       width: 100%;
     }
 
-    .sidebar__info{
+    .sidebar__info {
       height: 0;
       width: 0;
 
-      h3{
+      h3 {
         font-size: 1.4rem;
       }
 
-      p{
+      p {
         font-size: 1.2rem;
       }
 
-      h3, p{
+      h3,
+      p {
         transition: ease;
         visibility: hidden;
         opacity: 0;
       }
     }
 
-    .middle-section{
+    .middle-section {
       overflow-x: hidden;
       overflow-y: auto;
       margin-top: 1rem;
       max-height: auto;
-      flex: 1 1 auto ;
+      flex: 1 1 auto;
 
-      a{
+      a {
         display: flex;
         align-items: center;
         width: 100%;
         padding-block: 1.2rem;
         transition: none;
         margin: auto;
-        
-        .icon{
+
+        .icon {
           width: 2.4rem;
           margin-left: 2.4rem;
           fill: $light;
-        }  
+        }
 
         &.active {
           color: $accent;
           background-color: $dark;
           position: relative;
 
-            &::before{
-              position: absolute;
-              content: '';
-              background-color: $accent;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              width: 0.4rem;
-            }
-
-            .icon{
-              fill: $accent;
-            }
+          &::before {
+            position: absolute;
+            content: '';
+            background-color: $accent;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0.4rem;
           }
 
-          .icon{
-            margin-right: 2.4rem;
-          }
-
-          &:hover{
-            background-color: $dark;
-          }
-
-          span{
-            font-weight: bold;
-            width: 0%;
-            height: 0%;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
+          .icon {
+            fill: $accent;
           }
         }
-      }
 
-    .sidebar__footer{
+        .icon {
+          margin-right: 2.4rem;
+        }
+
+        &:hover {
+          background-color: $dark;
+        }
+
+        span {
+          font-weight: bold;
+          width: 0%;
+          height: 0%;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3s;
+        }
+      }
+    }
+
+    .sidebar__footer {
       flex-grow: 0;
       margin-top: auto;
 
-      ul{
+      ul {
         margin-bottom: 1rem;
       }
 
-      li{
+      li {
         padding-block: 1.4rem;
 
-        &:hover{
+        &:hover {
           background-color: $dark;
         }
       }
-      .icon{
+
+      .icon {
         font-size: 1.9rem;
         margin-left: 2.6rem;
       }
-      .sidebar__links-text{
+
+      .sidebar__links-text {
         font-weight: bold;
         height: 0%;
         opacity: 0;
@@ -354,26 +370,27 @@ header {
           text-align: center;
         }
 
-        h3{
+        h3 {
           color: $lightest;
           margin-top: 1.4rem;
           margin-bottom: 0.6rem;
         }
 
-        p{
+        p {
           margin-bottom: 1rem;
         }
       }
 
-      .sidebar__links-text{
+      .sidebar__links-text {
         width: calc(100% - 7rem);
         height: 100%;
         visibility: visible;
         opacity: 1;
       }
-      .sidebar__footer{
-        
-        .sidebar__links-text{
+
+      .sidebar__footer {
+
+        .sidebar__links-text {
           margin-left: 2.4rem;
           width: calc(100% - 7rem);
           height: 100%;
@@ -400,7 +417,8 @@ header {
   overflow-x: hidden;
   overflow-y: auto;
 }
-h1{
+
+h1 {
   font-size: 2.5rem;
   color: $lightest;
 }
